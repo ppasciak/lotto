@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+
+}
+body{
+  background: #FBC02D;
+}
+.wrapper{
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  color: #1976D2;
+  height: 800px;
+}
+header{
+  font-size: 2.3em;
+  text-align: center;
+  margin-left: 0 auto;
+}
+label{
+  display: inline-block;
+  width: 60px;
+  height: 45px;
+  font-size: 1.3em;
+  background: #1976D2;
+  padding: 8px 0 0 5px;
+  color: white;
+  margin: 2px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  cursor: pointer;
+}
+span {
+  position: relative;
+  padding-left: 1.3em;
+}
+.twojeTypy, .wygrane{
+  float: left;
+}
+form{
+  float: left;
+  width: 50%;
+  margin-bottom: 50px;
+}
+.box{
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 500px;
+}
+button{
+  margin: 0 auto;
+  margin: 10px 0;
+  height: 45px;
+  outline: none;
+  font-size: 1.3em;
+  width: 250px;
+  background: #1976D2;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  width: 370px;
+  box-shadow: inset 0 0 20px -5px #0D47A1;
+}
+.losowane{
+  width: 100%;
+  background: #555;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.kula{
+  background: #ccc;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset -10px -10px 15px rgba(0,0,0,0.3);
+}
+.yellow{
+  background-color: #FDD835;
+}
+.green{
+  background-color: #7CB342;
+}
+
+.kula h1{
+  font-size: 4em;
+  color: black;
+}
+button:disabled{
+  background: grey;
+  box-shadow: inset 0 0 20px -5px #333;
+  cursor: not-allowed;
+}
+.wynik{
+  margin: 5px;
+  height: 60px;
+  color: white;
+  width: 180px;
+  background: #1976D2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.wynik h3{
+  background: #1565C0;
+  padding: 3px;
+}
+input[type=checkbox] {
+  display: none;
+}
+input[type=checkbox] + span::before {
+  content: "check_box_outline_blank";
+  font-family: "Material Icons";
+  display: inline-block;
+  margin-top: 0.05em;
+  margin-left: -1.1em;
+  position: absolute;
+}
+
+input[type=checkbox]:disabled + span {
+  color: grey;
+  cursor: not-allowed;
+}
+input[type=checkbox]:disabled + span::before {
+  content: "indeterminate_check_box";
+}
+
+input[type=checkbox]:checked + span::before {
+  content: "check_box";
+  color: white;
+  animation: pop 0.3s ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#trafione_div{
+  display: none;
+}
