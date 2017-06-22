@@ -1,10 +1,14 @@
 var form = document.querySelector('#form'),
     losuj = document.querySelector('#losuj'),
+    Nrazy = document.querySelector('#Nrazy'),
+    losujNrazy = document.querySelector('#losujNrazy'),
     liczbaTrafionych = document.querySelector("#iletrafionych"),
+    najWynikP = document.querySelector("#najWynik"),
     trafione = document.querySelector("#trafione");
 var label, check, opis, span, wygraneLiczby, zaznaczone, wylosowane, wpis, wartosc;
 var liczbaGier = 0,
-    lwygranych = 0;
+    lwygranych = 0,
+    najWynik = 0;
 
 
 for(var i=1; i <= 49; i++){
@@ -28,6 +32,7 @@ for(var i=1; i <= 49; i++){
 function zaznaczonoWart(event){
   if (policz()) {
     losuj.disabled = false;
+    sprawdzIlosc();
   }else{
     losuj.disabled = true;
   }
@@ -41,8 +46,31 @@ function policz(){
     return 0;
   }
 }
-
+losujNrazy.style.display = "none";
 losuj.addEventListener('click', zatwierdz);
+Nrazy.addEventListener('keyup', sprawdzIlosc);
+
+
+function sprawdzIlosc(){
+  if(Nrazy.value > 0 && Nrazy.value <= 10000 && policz()){
+    losujNrazy.style.display = "block";
+    losujNrazy.disabled = false;
+    losujNrazy.innerHTML = "Losuj "+Nrazy.value+" razy";
+  }else{
+    losujNrazy.disabled = true;
+    losujNrazy.style.display = "none";
+  }
+}
+
+losujNrazy.addEventListener('click', losujLoop);
+
+function losujLoop() {
+  for(i = 1; i <= parseInt(Nrazy.value); i++){
+    setTimeout(() => {
+      zatwierdz();
+    }, 100);
+  }
+}
 
 function zatwierdz(){
   document.querySelector('#typy').innerHTML = '';
@@ -76,6 +104,10 @@ function generuj(){
 function srednia(wygrana){
   liczbaGier++;
   lwygranych += wygrana;
+  if(wygrana >= najWynik){
+    najWynikP.innerHTML = wygrana;
+    najWynik = wygrana;
+  }
   document.querySelector("#srednia").innerHTML = (lwygranych/liczbaGier).toFixed(2);
   document.querySelector("#iloscGier").innerHTML = liczbaGier;
 }

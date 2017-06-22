@@ -8,13 +8,15 @@
 }
 body{
   background: #FBC02D;
+  min-width: 450px;
 }
 .wrapper{
   margin: 0 auto;
   max-width: 1200px;
   text-align: center;
   color: #1976D2;
-  height: 800px;
+  width: 100%;
+  min-width: 350px;
 }
 header{
   font-size: 2.3em;
@@ -45,6 +47,7 @@ form{
   float: left;
   width: 50%;
   margin-bottom: 50px;
+  min-width: 450px;
 }
 .box{
   position: relative;
@@ -54,6 +57,15 @@ form{
   flex-wrap: wrap;
   justify-content: center;
   width: 500px;
+}
+.box input[type="number"]{
+  width: 370px;
+  border: none;
+  height: 30px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: #0D47A1;
+  font-weight: bold;
 }
 button{
   margin: 0 auto;
@@ -70,6 +82,17 @@ button{
   width: 370px;
   box-shadow: inset 0 0 20px -5px #0D47A1;
 }
+footer{
+  text-align: center;
+  display: block;
+  margin-top: 30px;
+}
+footer a{
+  color: #1976D2;
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 1.3em;
+}
 .losowane{
   width: 100%;
   background: #555;
@@ -80,12 +103,13 @@ button{
   align-items: center;
   margin-top: 30px;
   overflow: hidden;
+  flex-wrap: wrap;
   border-radius: 10px;
 }
 .kula{
   background: #ccc;
-  height: 150px;
-  width: 150px;
+  min-height: 150px;
+  min-width: 150px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -112,7 +136,7 @@ button:disabled{
   margin: 5px;
   height: 60px;
   color: white;
-  width: 180px;
+  width: 40%;
   background: #1976D2;
   border-radius: 5px;
   overflow: hidden;
@@ -162,4 +186,26 @@ input[type=checkbox]:checked + span::before {
 
 #trafione_div{
   display: none;
+}
+
+@media screen and (max-width: 1000px){
+  form{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .losowane{
+    display: none;
+  }
+  .wrapper{
+    width: 100%;
+    min-width: 450px;
+  }
+  .box input{
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 633px){
+  .box{
+    width: 100%;
+  }
 }
